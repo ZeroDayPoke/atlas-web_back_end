@@ -19,10 +19,12 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     List[float]: A list of delays from each task_wait_random
                 call in ascending order based on completion.
     """
-    tasks = [asyncio.create_task(task_wait_random(max_delay)) for _ in range(n)]
+    tasks = [asyncio.create_task(task_wait_random(max_delay))
+             for _ in range(n)]
     completed_delays = []
     while tasks:
-        done, _ = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+        done, _ = await asyncio.wait(tasks,
+                                     return_when=asyncio.FIRST_COMPLETED)
         for task in done:
             completed_delays.append(task.result())
             tasks.remove(task)
