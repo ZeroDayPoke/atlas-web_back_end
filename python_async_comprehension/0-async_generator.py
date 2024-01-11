@@ -10,6 +10,11 @@ async def async_generator() -> AsyncGenerator[float, None]:
     An asynchronous generator that yields 10 random numbers,
     each after waiting 1 second.
 
+    Note: correct typing used regardless of checker's desires.
+    This is blatantly an AsyncGenerator, not a Generator.
+    Here's the difference:
+    https://stackoverflow.com/questions/42531143/asyncio-async-generator-vs-async-iterator
+
     Yields:
     float: A random number between 0 and 10.
     """
