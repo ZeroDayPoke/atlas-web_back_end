@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 1"""
+"""Module containing the LIFOCache class."""
 BaseCaching = __import__('base_caching').BaseCaching
 
 
