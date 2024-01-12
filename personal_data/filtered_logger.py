@@ -11,6 +11,24 @@ from mysql.connector import connection
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
 
+def main():
+    db = get_db()
+    logger = get_logger()
+
+    try:
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM users;")
+        for row in cursor:
+            log_record = logging.LogRecord("user_data", logging.INFO,
+                                           None, None, str(row), None, None)
+            print(logger.handle(log_record))
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+    finally:
+        cursor.close()
+        db.close()
+
+
 def get_db() -> connection.MySQLConnection:
     """Create and return a connection to the database."""
     db_username = os.getenv('PERSONAL_DATA_DB_USERNAME', 'root')
@@ -64,3 +82,7 @@ class RedactingFormatter(logging.Formatter):
         original_message = super().format(record)
         return filter_datum(self.fields, self.REDACTION,
                             original_message, self.SEPARATOR)
+
+
+if __name__ == "__main__":
+    main()
