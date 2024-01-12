@@ -28,5 +28,5 @@ def stats() -> str:
 
 @app_views.route('/unauthorized', methods=['GET'], strict_slashes=False)
 def unauthorized() -> str:
-  """unauthorized route"""
-  abort(401)
+    """unauthorized route"""
+    abort(401)
