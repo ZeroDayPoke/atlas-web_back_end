@@ -1,22 +1,29 @@
 -- setup mysql server
 -- configure permissions
-CREATE DATABASE IF NOT EXISTS my_db;
-CREATE USER IF NOT EXISTS bbroot@localhost IDENTIFIED BY 'root';
-GRANT ALL PRIVILEGES ON my_db.* TO bbroot@localhost;
+CREATE DATABASE IF NOT EXISTS personal_data_db;
 
-USE my_db;
+-- Create a new user with privileges
+CREATE USER IF NOT EXISTS 'personal_data_root'@'%' IDENTIFIED BY 'root_pass';
+GRANT ALL PRIVILEGES ON personal_data_db.* TO 'personal_data_root'@'%';
+FLUSH PRIVILEGES;
 
+-- Select the database to use
+USE personal_data_db;
+
+-- Drop the 'users' table if it already exists and create a new one
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     name VARCHAR(256), 
-        email VARCHAR(256), 
-        phone VARCHAR(16),
+    email VARCHAR(256), 
+    phone VARCHAR(16),
     ssn VARCHAR(16), 
-        password VARCHAR(256),
+    password VARCHAR(256),
     ip VARCHAR(64), 
-        last_login TIMESTAMP,
+    last_login TIMESTAMP,
     user_agent VARCHAR(512)
 );
 
-INSERT INTO users(name, email, phone, ssn, password, ip, last_login, user_agent) VALUES ("Marlene Wood","hwestiii@att.net","(473) 401-4253","261-72-6780","K5?BMNv","60ed:c396:2ff:244:bbd0:9208:26f2:93ea","2019-11-14 06:14:24","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36");
-INSERT INTO users(name, email, phone, ssn, password, ip, last_login, user_agent) VALUES ("Belen Bailey","bcevc@yahoo.com","(539) 233-4942","203-38-5395","^3EZ~TkX","f724:c5d1:a14d:c4c5:bae2:9457:3769:1969","2019-11-14 06:16:19","Mozilla/5.0 (Linux; U; Android 4.1.2; de-de; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30");
+-- Insert test data into the 'users' table
+INSERT INTO users(name, email, phone, ssn, password, ip, last_login, user_agent) 
+VALUES ("Marlene Wood","hwestiii@att.net","(473) 401-4253","261-72-6780","K5?BMNv","60ed:c396:2ff:244:bbd0:9208:26f2:93ea","2019-11-14 06:14:24","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36"),
+       ("Belen Bailey","bcevc@yahoo.com","(539) 233-4942","203-38-5395","^3EZ~TkX","f724:c5d1:a14d:c4c5:bae2:9457:3769:1969","2019-11-14 06:16:19","Mozilla/5.0 (Linux; U; Android 4.1.2; de-de; GT-I9100 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30");
