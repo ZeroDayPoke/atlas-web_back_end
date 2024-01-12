@@ -2,6 +2,7 @@
 """ Basic authentication
 """
 from .auth import Auth
+from flask import request
 
 
 class BasicAuth(Auth):
