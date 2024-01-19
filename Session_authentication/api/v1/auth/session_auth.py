@@ -3,6 +3,7 @@
 """
 from .auth import Auth
 
+
 class SessionAuth(Auth):
     """session authentication class"""
     pass
