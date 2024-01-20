@@ -11,11 +11,13 @@ AUTH = Auth()
 
 @app.route('/', methods=['GET'])
 def home():
+    """home"""
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route('/users', methods=['POST'])
 def users():
+    """users"""
     email = request.form.get('email')
     password = request.form.get('password')
 
@@ -28,6 +30,7 @@ def users():
 
 @app.route('/sessions', methods=['POST'])
 def login():
+    """login"""
     email = request.form.get('email')
     password = request.form.get('password')
 
@@ -43,6 +46,7 @@ def login():
 
 @app.route('/sessions', methods=['DELETE'])
 def logout():
+    """logout"""
     session_id = request.cookies.get('session_id', None)
     user = AUTH.get_user_from_session_id(session_id)
 
@@ -55,6 +59,7 @@ def logout():
 
 @app.route('/profile', methods=['GET'])
 def profile():
+    """profile"""
     session_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(session_id)
 
@@ -66,6 +71,7 @@ def profile():
 
 @app.route('/reset_password', methods=['POST'])
 def get_reset_password_token():
+    """reset password"""
     email = request.form.get('email')
 
     try:
