@@ -63,6 +63,7 @@ class Auth:
         user = self._db.find_user_by(session_id=session_id)
         return user
 
+
 def _hash_password(self, password: str) -> bytes:
     """
     Hash a password for storing.
