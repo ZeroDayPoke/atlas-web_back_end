@@ -9,8 +9,7 @@ from api.v1.app import auth
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def session_login():
-    """ POST /api/v1/auth_session/login
-    """
+    """testing documenation"""
     email = request.form.get("email")
     if not email:
         return jsonify({"error": "email missing"}), 400
