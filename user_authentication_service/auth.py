@@ -23,7 +23,6 @@ class Auth:
         new_user = self._db.add_user(email, hashed_password)
         return new_user
 
-
     def _hash_password(self, password: str) -> bytes:
         """
         Hash a password for storing.
