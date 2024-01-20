@@ -43,6 +43,17 @@ class Auth:
             pass
         return False
 
+    def create_session(self, email: str) -> str:
+        """
+        Create a session ID for a user with the given email.
+        """
+        user = self._db.find_user_by(email=email)
+        if user:
+            session_id = str(uuid.uuid4())
+            self._db.update_user(user.id, session_id=session_id)
+            return session_id
+        return None
+
 
 def _hash_password(self, password: str) -> bytes:
     """
