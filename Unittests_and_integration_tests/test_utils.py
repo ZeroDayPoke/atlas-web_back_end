@@ -49,14 +49,17 @@ class TestGetJson(unittest.TestCase):
 class TestMemoize(unittest.TestCase):
     """TestMemoize class"""
     def test_memoize(self):
+        """test_memoize"""
 
         class TestClass:
             """TestClass class"""
             def a_method(self):
+                """a_method method lmfao"""
                 return 42
 
             @memoize
             def a_property(self):
+                """why not a_property"""
                 return self.a_method()
 
         with patch.object(TestClass,
