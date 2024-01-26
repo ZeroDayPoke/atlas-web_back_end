@@ -36,6 +36,7 @@ class TestGetJson(unittest.TestCase):
         ("http://holberton.io", {"payload": False}),
     ])
     def test_get_json(self, test_url, test_payload):
+        """test_get_json"""
         with patch('requests.get') as mocked_get:
             mocked_get.return_value = MagicMock(json=lambda: test_payload)
 
