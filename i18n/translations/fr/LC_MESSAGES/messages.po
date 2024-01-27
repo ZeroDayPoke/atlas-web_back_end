@@ -29,24 +29,19 @@ msgstr "UWU"
 #: templates/3-index.html:6 templates/4-index.html:6 templates/5-index.html:6
 #: templates/6-index.html:6 templates/7-index.html:6
 msgid "home_title"
-msgstr "UWU"
+msgstr "Bienvenue chez Holberton"
 
 #: templates/3-index.html:9 templates/4-index.html:9 templates/5-index.html:9
 #: templates/6-index.html:9 templates/7-index.html:9
 msgid "home_header"
-msgstr "UWU"
+msgstr "Bonjour monde!"
 
 #: templates/5-index.html:11 templates/6-index.html:11
 #: templates/7-index.html:11
 msgid "logged_in_as"
-msgstr "UWU"
+msgstr "Vous êtes connecté en tant que %(username)s."
 
 #: templates/5-index.html:13 templates/6-index.html:13
 #: templates/7-index.html:13
 msgid "not_logged_in"
-msgstr "UWU"
-
-#: templates/7-index.html:14
-msgid "nonsense"
-msgstr "UWU"
-
+msgstr "Vous n'êtes pas connecté."
